@@ -1,15 +1,15 @@
-//I have not yet loaded the relevant libraries onto Github
-
 #include "mbed.h"
 #include "MBed_Adafruit_GPS.h"
 #include "BNO055.h" //IMU
 #include "rtos.h"
+
 DigitalOut led1(LED1);
 DigitalOut led2(LED2);
 //RC controller is I2c -may change if RC controller has a library
 I2C RC(p13, p14);
+
 const int addr = 0x90; //make address for data?
-char cmd[2]; // create an array to save data from i2c
+char command[2]; // create an array to save data from i2c
 // initialize variables for stepper motor rudder functions
 float r_ang; //desired angle - user imput or nav software's specified angle
 DigitalOut   r_motor( p25 ); // motor for rudder
