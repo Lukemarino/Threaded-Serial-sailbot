@@ -12,6 +12,7 @@ class SailbotGPS{
 
  private:
   Serial _gps;
+  Adafruit_GPS _adafruit; 
 };
 
 #endif

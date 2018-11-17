@@ -10,6 +10,8 @@ class SailbotIMU{
  public:
   SailbotIMU(PinName SDA, PinName SCL);
   ~SailbotIMU();
+  void get_angles(void); 
+  float get_yaw(void);
   
  private:
   BNO055 _bno055;

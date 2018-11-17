@@ -37,6 +37,8 @@ SailbotIMU imu(p28,p27); // BNO055, SDA p8, SCL p27
 int main(void){
   // setup
   // start up the boat
+  manual_control_thread.start(callback(manual_control_callback));
+  telemetry_thread.start(callback(telemetry_callback));
 
   // loop
   while(1){
@@ -55,22 +57,34 @@ int main(void){
 
 
 void manual_control_callback(void){
+  uint64_t now;
+  
   // setup
+  debug("manual_control_thread started\r\n");
 
   // loop
-  // every X approximately
-  // check the Spektrum radio commands
-  // set the rudder and mainsail. 
-}
+  while(1){
+    now = rtos::Kernel::get_ms_count(); 
+    // LATER set the rudder
+    // LATER set the mainsail
+    ThisThread::sleep_until(now+44); // wait until 44 ms later
+  } // while(1)
+} // manual_control_callback()
 
 
 
 
 
 void telemetry_callback(void){
+  uint64_t now;
+  
   // setup
-
+  debug("telemetry_thread started\r\n");
+  
   // loop
-  // every X
-  // assemble and send telemetry information
-}
+  while(1){
+    now = rtos::Kernel::get_ms_count();
+    // LATER assemble and send telemetry information
+    ThisThread::sleep_until(now+2000);
+  } // while(1)
+} // telemetry_callback()
