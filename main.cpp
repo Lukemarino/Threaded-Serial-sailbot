@@ -1,6 +1,8 @@
 /*
   Sailbot Hull 14
-  L Marino, D Robinson, D Evangelista, and P Frontera, 2018
+  L Marino and D Robinson, 
+  with D Evangelista, P Frontera, M Kutzer, A Laun
+  2018
   
   Threaded version using mbed OS5
   Serial links between nodes
@@ -35,7 +37,7 @@ int main(void){
     // let the telemetry thread do its job... 
   } // while(1)
 
-  return 0; 
+  //return 0; 
 }// main()
 
 
