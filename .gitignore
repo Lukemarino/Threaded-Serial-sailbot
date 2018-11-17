@@ -1,3 +1,5 @@
 BUILD/*
 *~
 *.pyc
+BNO055/
+MBed_Adafruit-GPS-Library/
