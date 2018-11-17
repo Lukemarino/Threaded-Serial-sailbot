@@ -19,6 +19,6 @@ class PST360{
   float _m;
   float _b;
   float _th; 
-}
+};
 
 #endif

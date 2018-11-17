@@ -17,6 +17,6 @@ class Pololu2968{
   DigitalOut _i1;
   DigitalOut _i2;
   DigitalOut _nsleep;
-}
+};
 
 #endif
