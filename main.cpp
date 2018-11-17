@@ -1,3 +1,14 @@
+/*
+  Sailbot Hull 14
+  L Marino, D Robinson, D Evangelista, and P Frontera, 2018
+  
+  Threaded version using mbed OS5
+  Serial links between nodes
+  Stepper motors with Pololu 2968 drivers (MP6500 based)
+  Piher PST360 angle sensors
+  Adafruit Absolute GPS
+  Telemetry via ???Ubiquity??? 
+*/
 #include "mbed.h"
 #include "rtos.h"
 
