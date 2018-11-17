@@ -14,6 +14,7 @@
 #include "mbed.h"
 #include "rtos.h"
 #include "Spektrum.h"
+#include "SailbotActuator.h"
 
 // global definitions here
 DigitalOut heartbeat(LED1);  // heartbeat indication in main thread
@@ -23,7 +24,8 @@ void manual_control_callback(void);
 void telemetry_callback(void); 
 
 Spektrum rx(p13,p14); 
-
+SailbotActuator mainsail(p25,p24,p26,NC,NC,p18);
+SailbotActuator rudder(p22,p21,p23,NC,NC,p20);
 
 
 int main(void){

@@ -1,6 +1,9 @@
-#ifndef SAILBOT_ACTUATOR_H
-#define SAILBOT_ACTUATOR_H
-#define SAILBOT_ACTUATOR_VERSION ("14.0.0")
+#ifndef SAILBOTACTUATOR_H
+#define SAILBOTACTUATOR_H
+#define SAILBOTACTUATOR_VERSION ("14.0.0")
+
+#define SAILBOTACTUATOR_SENSOR_BUFSIZE 3
+
 
 #include "mbed.h"
 #include "Pololu2968.h"
@@ -11,11 +14,14 @@ class SailbotActuator{
   SailbotActuator(PinName step, PinName dir, PinName i1, PinName i2, PinName nsleep, PinName ain);
   ~SailbotActuator();
 
-  float command; 
+  float r; // ref
+  float y; // filtered measurement
 
  private:
   Pololu2968 _driver;
   PST360 _sensor;
+  float _sensor_buf[SAILBOTACTUATOR_SENSOR_BUFSIZE];
+  int _sensor_i; 
 };
 
 #endif
