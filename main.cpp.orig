@@ -5,11 +5,12 @@
 
 DigitalOut led1(LED1);
 DigitalOut led2(LED2);
+
 //RC controller is I2c -may change if RC controller has a library
 I2C RC(p13, p14);
-
 const int addr = 0x90; //make address for data?
 char command[2]; // create an array to save data from i2c
+
 // initialize variables for stepper motor rudder functions
 float r_ang; //desired angle - user imput or nav software's specified angle
 DigitalOut   r_motor( p25 ); // motor for rudder
@@ -20,6 +21,7 @@ float p2; // to reduce noise
 float p3;
 float pos; //another variable for position
 AnalogIn   r_ain(p18); //ain is raw encoder data
+
 // initialize variables for stepper mast
 float m_ang; //desired angle - user imput or nav software's specified angle
 DigitalOut   m_motor( p22 ); // motor for rudder
@@ -30,6 +32,7 @@ float m2; // to reduce noise
 float m3;
 float m_pos; //another variable for position
 AnalogIn   m_ain(p20); //ain is raw encoder data
+
 //GPS and IMU variables
 Serial * gps_Serial;
 Serial pc (USBTX, USBRX); // remnant of old
