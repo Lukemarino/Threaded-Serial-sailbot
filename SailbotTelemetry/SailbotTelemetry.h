@@ -4,7 +4,7 @@
 
 #include "mbed.h"
 
-class SailbotTelemetry(){
+class SailbotTelemetry{
  public:
   SailbotTelemetry(PinName tx, PinName rx);
   ~SailbotTelemetry();

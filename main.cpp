@@ -13,6 +13,7 @@
 */
 #include "mbed.h"
 #include "rtos.h"
+#include "Spektrum.h"
 
 // global definitions here
 DigitalOut heartbeat(LED1);  // heartbeat indication in main thread
@@ -21,7 +22,7 @@ Thread telemetry_thread;
 void manual_control_callback(void);
 void telemetry_callback(void); 
 
-
+Spektrum rx(p13,p14); 
 
 
 
