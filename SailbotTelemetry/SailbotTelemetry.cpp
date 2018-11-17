@@ -1,7 +1,7 @@
 #include "mbed.h"
 #include "SailbotTelemetry.h"
 
-SailbotTelemetry::SailbotTelemetry(PinName tx, PinName rx):_telemetry(tx,rx){
+SailbotTelemetry::SailbotTelemetry(PinName tx, PinName rx, int baud):_telemetry(tx,rx,baud){
   debug("SailbotTelemetry() constructor called\r\n");
 }
 

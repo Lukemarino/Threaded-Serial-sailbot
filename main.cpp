@@ -13,8 +13,11 @@
 */
 #include "mbed.h"
 #include "rtos.h"
+#include "SailbotTelemetry.h"
 #include "Spektrum.h"
 #include "SailbotActuator.h"
+#include "SailbotGPS.h"
+#include "SailbotIMU.h"
 
 // global definitions here
 DigitalOut heartbeat(LED1);  // heartbeat indication in main thread
@@ -23,9 +26,12 @@ Thread telemetry_thread;
 void manual_control_callback(void);
 void telemetry_callback(void); 
 
-Spektrum rx(p13,p14); 
+SailbotTelemetry telemetry(USBTX,USBRX,115200);
+Spektrum rx(p13,p14); // Spektrum SPM9745 115200 8N1 on p13, p14
 SailbotActuator mainsail(p25,p24,p26,NC,NC,p18);
 SailbotActuator rudder(p22,p21,p23,NC,NC,p20);
+SailbotGPS gps(p9,p10);  // Adafruit Absolute GPS, tx p9, rx p10
+SailbotIMU imu(p28,p27); // BNO055, SDA p8, SCL p27
 
 
 int main(void){

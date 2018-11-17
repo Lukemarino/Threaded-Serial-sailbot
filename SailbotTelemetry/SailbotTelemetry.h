@@ -1,12 +1,13 @@
 #ifndef SAILBOTTELEMETRY_H
 #define SAILBOTTELEMETRY_H
 #define SAILBOTTELEMETRY_VERSION ("14.0.0")
+#define SAILBOTTELEMETRY_BAUD 115200
 
 #include "mbed.h"
 
 class SailbotTelemetry{
  public:
-  SailbotTelemetry(PinName tx, PinName rx);
+  SailbotTelemetry(PinName tx, PinName rx, int baud=SAILBOTTELEMETRY_BAUD);
   ~SailbotTelemetry();
 
  private:
