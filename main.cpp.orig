@@ -135,24 +135,24 @@ void telemetry_callback(void)
             if (refresh_Timer.read_ms() >= refresh_Time) {
                 refresh_Timer.reset();
                 //send hr
-                data = myGPS.hour;               // conc(myGPS.hour, myGPS.minute, myGPS.seconds );
+                data = myGPS.hour;              
                 myFloat.m_float = data;
                 data = myFloat.m_float;   // get the float back from the union
                 pc.printf("%2.0f", data);
                 Thread::wait(35);
                 //send min
-                data = myGPS.minute;               // conc(myGPS.hour, myGPS.minute, myGPS.seconds );
+                data = myGPS.minute;               
                 myFloat.m_float = data;
                 data = myFloat.m_float;   // get the float back from the union
                 pc.printf("%2.0f", data);
                 Thread::wait(35);
                 //send sec
-                data = myGPS.seconds;               // conc(myGPS.hour, myGPS.minute, myGPS.seconds );
+                data = myGPS.seconds;              
                 myFloat.m_float = data;
                 data = myFloat.m_float;   // get the float back from the union
                 pc.printf("%2.0f", data);
                 Thread::wait(35);
-
+                  //Time could be concatenated into one output to reduce time in telemetry thread
                 if (myGPS.fix) {
                     //rudder and mast position will log here
                     //not yet included because we have been testing GPS without powering the motors and encoders
@@ -176,10 +176,6 @@ void telemetry_callback(void)
                     Thread::wait(2000);
                 }//if (myGPS.fix)
             }//if (refresh_Timer..
-
-            //pc.printf("Location: %5.2f%c, %5.2f%c\n", myGPS.latitude, myGPS.lat, myGPS.longitude, myGPS.lon);
-            //pc.printf("Speed: %5.2f knots\n", myGPS.speed,myGPS.angle, myGPS.altitude, myGPS.satellites);
-            //pc.printf("yaw: %5.2f\n", bno.euler.yaw);
         }//if ( myGPS.newNMEAreceived() )
     }//while(true)
 
