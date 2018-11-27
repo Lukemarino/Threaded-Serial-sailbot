@@ -3,7 +3,7 @@
 
 This is the repository for the threaded serial code for sailbot (2018) and is intended for use in Hull 14 with ship control system based on SY202 boards and RS232 serial interfacing between boards. This variant is intended for launch in Nov 2018 - Jan 2019 timeframe. 
 
-The left and right motor functions work but are not great. They will probably be replaced with a pwm output rather than toggling a digital output
+The left and right motor functions are a work in progress. They use a pwm signal and now toggle the stepper motor control to sleep mode when not in use now but are slow.
 Some of the functions and code will be consolidated and cleaned up after thanksgiving. For example, the stepper motor functions will be turned into a class and the code will make two stepper motor objects rather than having two separate sets of stepper motor functions
 
 ## ``main.cpp`` main code
